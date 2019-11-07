@@ -3,7 +3,7 @@ package jsf;
 import jpa.entities.Staff;
 import jsf.util.JsfUtil;
 import jsf.util.PaginationHelper;
-import jpa.sessions.StaffFacade;
+import jpa.session.StaffFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class StaffController implements Serializable {
     private Staff current;
     private DataModel items = null;
     @EJB
-    private jpa.sessions.StaffFacade ejbFacade;
+    private jpa.session.StaffFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

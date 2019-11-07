@@ -3,7 +3,7 @@ package jsf;
 import jpa.entities.Users;
 import jsf.util.JsfUtil;
 import jsf.util.PaginationHelper;
-import jpa.sessions.UsersFacade;
+import jpa.session.UsersFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class UsersController implements Serializable {
     private Users current;
     private DataModel items = null;
     @EJB
-    private jpa.sessions.UsersFacade ejbFacade;
+    private jpa.session.UsersFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

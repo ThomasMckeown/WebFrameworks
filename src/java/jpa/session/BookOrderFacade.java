@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jpa.sessions;
+package jpa.session;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import jpa.entities.Book;
+import jpa.entities.BookOrder;
 
 /**
  *
  * @author User
  */
 @Stateless
-public class BookFacade extends AbstractFacade<Book> {
+public class BookOrderFacade extends AbstractFacade<BookOrder> {
 
     @PersistenceContext(unitName = "WebFrameworksCAThomasTimothyPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class BookFacade extends AbstractFacade<Book> {
         return em;
     }
 
-    public BookFacade() {
-        super(Book.class);
+    public BookOrderFacade() {
+        super(BookOrder.class);
     }
     
 }

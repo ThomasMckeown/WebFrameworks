@@ -3,7 +3,7 @@ package jsf;
 import jpa.entities.Book;
 import jsf.util.JsfUtil;
 import jsf.util.PaginationHelper;
-import jpa.sessions.BookFacade;
+import jpa.session.BookFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class BookController implements Serializable {
     private Book current;
     private DataModel items = null;
     @EJB
-    private jpa.sessions.BookFacade ejbFacade;
+    private jpa.session.BookFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

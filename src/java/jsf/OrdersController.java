@@ -3,7 +3,7 @@ package jsf;
 import jpa.entities.Orders;
 import jsf.util.JsfUtil;
 import jsf.util.PaginationHelper;
-import jpa.sessions.OrdersFacade;
+import jpa.session.OrdersFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
@@ -25,7 +25,7 @@ public class OrdersController implements Serializable {
     private Orders current;
     private DataModel items = null;
     @EJB
-    private jpa.sessions.OrdersFacade ejbFacade;
+    private jpa.session.OrdersFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 

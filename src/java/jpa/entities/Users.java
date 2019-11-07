@@ -36,7 +36,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username")
     , @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")
     , @NamedQuery(name = "Users.findByAddress", query = "SELECT u FROM Users u WHERE u.address = :address")
-    , @NamedQuery(name = "Users.findByOrdersId", query = "SELECT u FROM Users u WHERE u.ordersId = :ordersId")})
+    , @NamedQuery(name = "Users.findByOrdersId", query = "SELECT u FROM Users u WHERE u.ordersId = :ordersId")
+    , @NamedQuery(name = "Users.findByAdmin", query = "SELECT u FROM Users u WHERE u.admin = :admin")})
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -64,6 +65,8 @@ public class Users implements Serializable {
     @NotNull
     @Column(name = "orders_id")
     private int ordersId;
+    @Column(name = "admin")
+    private Integer admin;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Orders> ordersCollection;
 
@@ -120,6 +123,14 @@ public class Users implements Serializable {
 
     public void setOrdersId(int ordersId) {
         this.ordersId = ordersId;
+    }
+
+    public Integer getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Integer admin) {
+        this.admin = admin;
     }
 
     @XmlTransient

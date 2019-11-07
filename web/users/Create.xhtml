@@ -25,6 +25,8 @@
                     <h:inputText id="address" value="#{usersController.selected.address}" title="#{bundle.CreateUsersTitle_address}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_address}"/>
                     <h:outputLabel value="#{bundle.CreateUsersLabel_ordersId}" for="ordersId" />
                     <h:inputText id="ordersId" value="#{usersController.selected.ordersId}" title="#{bundle.CreateUsersTitle_ordersId}" required="true" requiredMessage="#{bundle.CreateUsersRequiredMessage_ordersId}"/>
+                    <h:outputLabel value="#{bundle.CreateUsersLabel_admin}" for="admin" />
+                    <h:inputText id="admin" value="#{usersController.selected.admin}" title="#{bundle.CreateUsersTitle_admin}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{usersController.create}" value="#{bundle.CreateUsersSaveLink}" />
