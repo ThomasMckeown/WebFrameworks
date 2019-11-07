@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditStaffTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditStaffLabel_staffId}" for="staffId" />
+                    <h:inputText id="staffId" value="#{staffController.selected.staffId}" title="#{bundle.EditStaffTitle_staffId}" required="true" requiredMessage="#{bundle.EditStaffRequiredMessage_staffId}"/>
+                    <h:outputLabel value="#{bundle.EditStaffLabel_staffName}" for="staffName" />
+                    <h:inputText id="staffName" value="#{staffController.selected.staffName}" title="#{bundle.EditStaffTitle_staffName}" required="true" requiredMessage="#{bundle.EditStaffRequiredMessage_staffName}"/>
+                    <h:outputLabel value="#{bundle.EditStaffLabel_salary}" for="salary" />
+                    <h:inputText id="salary" value="#{staffController.selected.salary}" title="#{bundle.EditStaffTitle_salary}" required="true" requiredMessage="#{bundle.EditStaffRequiredMessage_salary}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{staffController.update}" value="#{bundle.EditStaffSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditStaffViewLink}"/>
+                <br />
+                <h:commandLink action="#{staffController.prepareList}" value="#{bundle.EditStaffShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditStaffIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

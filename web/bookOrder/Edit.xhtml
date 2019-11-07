@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBookOrderTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBookOrderLabel_bookOrderPK_bookId}" for="bookOrderPK_bookId" />
+                    <h:inputText id="bookOrderPK_bookId" value="#{bookOrderController.selected.bookOrderPK.bookId}" title="#{bundle.EditBookOrderTitle_bookOrderPK_bookId}" required="true" requiredMessage="#{bundle.EditBookOrderRequiredMessage_bookOrderPK_bookId}"/>
+                    <h:outputLabel value="#{bundle.EditBookOrderLabel_userId}" for="userId" />
+                    <h:inputText id="userId" value="#{bookOrderController.selected.userId}" title="#{bundle.EditBookOrderTitle_userId}" required="true" requiredMessage="#{bundle.EditBookOrderRequiredMessage_userId}"/>
+                    <h:outputLabel value="#{bundle.EditBookOrderLabel_orders}" for="orders" />
+                    <h:selectOneMenu id="orders" value="#{bookOrderController.selected.orders}" title="#{bundle.EditBookOrderTitle_orders}" required="true" requiredMessage="#{bundle.EditBookOrderRequiredMessage_orders}">
+                        <f:selectItems value="#{ordersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{bookOrderController.update}" value="#{bundle.EditBookOrderSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBookOrderViewLink}"/>
+                <br />
+                <h:commandLink action="#{bookOrderController.prepareList}" value="#{bundle.EditBookOrderShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBookOrderIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
