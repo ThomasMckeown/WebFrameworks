@@ -18,10 +18,20 @@
         <navigation-case>
             <from-action>#{login_bean.checkValidUser}</from-action>
             <from-outcome>valid</from-outcome>
-            <to-view-id>/admin.xhtml</to-view-id>
+            <to-view-id>/noneAdmin.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{login_bean.checkValidUser}</from-action>
+            <from-outcome>invalid</from-outcome>
+            <to-view-id>/login_fail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{login_bean.checkValidAdminUser}</from-action>
+            <from-outcome>valid</from-outcome>
+            <to-view-id>/admin.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{login_bean.checkValidAdminUser}</from-action>
             <from-outcome>invalid</from-outcome>
             <to-view-id>/login_fail.xhtml</to-view-id>
         </navigation-case>
@@ -33,10 +43,20 @@
         <navigation-case>
             <from-action>#{login_bean.checkValidUser}</from-action>
             <from-outcome>valid</from-outcome>
-            <to-view-id>/admin.xhtml</to-view-id>
+            <to-view-id>/noneAdmin.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{login_bean.checkValidUser}</from-action>
+            <from-outcome>invalid</from-outcome>
+            <to-view-id>/login_fail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{login_bean.checkValidAdminUser}</from-action>
+            <from-outcome>valid</from-outcome>
+            <to-view-id>/admin.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{login_bean.checkValidAdminUser}</from-action>
             <from-outcome>invalid</from-outcome>
             <to-view-id>/login_fail.xhtml</to-view-id>
         </navigation-case>
