@@ -35,7 +35,10 @@ xmlns:f = "http://java.sun.com/jsf/core">
                   </tr>
                   <tr>
                       <td colspan="2" align="center">
-                          <h:commandButton action="#{login_bean.checkValidUser}" value="Login" type="submit"/></td>
+                          <h:commandButton action="#{login_bean.checkValidUser}" value="Login" type="submit"/>
+                        <h:commandButton action="#{login_bean.checkValidAdminUser}" value="Admin" type="submit"/>
+                      </td>
+                          
                   </tr>
                 </table>
             </h:form>
