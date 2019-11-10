@@ -18,19 +18,27 @@ public class login_bean {
     private String username;
     private String password;
     private String dbusername;
- 
+    private int admin;
+    
     public String getDbpassword() {
         return dbpassword;
     }
     public String getDbusername() {
         return dbusername;
     }
- 
+    public int getDbadmin()
+    {
+        return dbadmin;
+    }
+    
     private String dbpassword;
+    private int dbadmin;
     Connection con;
     Statement ps;
     ResultSet rs;
     String SQL_Str;
+    
+   
  
     public void dbData(String UName)
     {
@@ -44,6 +52,7 @@ public class login_bean {
             rs.next();
             dbusername=rs.getString(2).toString();
             dbpassword=rs.getString(3).toString();
+            dbadmin=rs.getInt(6);
         }
         catch(Exception ex)
         {
@@ -66,6 +75,15 @@ public class login_bean {
     public void setUsername(String username) {
         this.username = username;
     }
+    public int getAdmin()
+    {
+        return admin;
+    }
+    public void setAdmin(int admin)
+    {
+        this.admin = admin;
+    }
+                            
     public String checkValidUser()
     {
         dbData(username);
@@ -74,17 +92,47 @@ public class login_bean {
         {
  
             if(password.equals(dbpassword))
+            {
                 return "valid";
+            }
+            
             else
             {
                 return "invalid";
             }
+
         }
         else
         {
             return "invalid";
         }
     }
+    public String checkValidAdminUser()
+    {
+        dbData(username);
+        
+ 
+        if(username.equalsIgnoreCase(dbusername))
+        {
+ 
+            if(password.equals(dbpassword) && dbadmin == 1)
+            {
+                return "valid";
+            }
+            
+            else
+            {
+                return "invalid";
+            }
+            
+        }
+        
+        else
+        {
+            return "invalid";
+        }
+    }
+
 }
 
 
