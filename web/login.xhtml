@@ -4,7 +4,9 @@
 
 <html xmlns = "http://www.w3.org/1999/xhtml"   
 xmlns:h = "http://java.sun.com/jsf/html"
-xmlns:f = "http://java.sun.com/jsf/core">
+xmlns:f = "http://java.sun.com/jsf/core"
+xmlns:p = "http://java.sun.com/jsf/passthrough"
+xmlns:jsf="http://xmlns.jcp.org/jsf">
    
 
     <h:head>
@@ -19,23 +21,34 @@ xmlns:f = "http://java.sun.com/jsf/core">
                 <h2>Login:</h2>
                 <table width="250" border="0" cellspacing="0" cellpadding="2">
                   <tr>
-                      <td colspan="2">
+                      <!--<td colspan="2">
                             <h:message for="username" />
                             <p></p>
                             <h:message for="password" />
-                        </td>
+                        </td>-->
                   </tr>
                   <tr>
-                    <td><h:outputText value="Username : "/></td>
-                    <td><h:inputText id="username" value="#{login_bean.username}" required="true" /></td>
+                    <td><h:outputText value="Username: "/></td>
+                    <td><input type="text" id="username" jsf:id="username" value="#{login_bean.username}" required="required" /></td>
+                    <tr>
+                    <h:message for="username"  style="color: red"/>
+                    </tr>
+                    
                   </tr>
+                    
                   <tr>
-                    <td><h:outputText value="Password : "/></td>
-                    <td><h:inputSecret id="password" value="#{login_bean.password}" required="true" /></td>
+                    <td><h:outputText value="Password: "/></td>
+                    <td><input type="password" id="password" jsf:id="password" value="#{login_bean.password}"
+                               required="required" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" /></td>
+                    
+                    <br></br> 
+                    <h:message for="password" style="color: red" />
+                    
                   </tr>
+                    
                   <tr>
                       <td colspan="2" align="center">
-                          <h:commandButton action="#{login_bean.checkValidUser}" value="Login" type="submit"/>
+                          <h:commandButton action="#{login_bean.checkValidUser}" value="Login" type="submit" />
                         <h:commandButton action="#{login_bean.checkValidAdminUser}" value="Admin" type="submit"/>
                       </td>
                           

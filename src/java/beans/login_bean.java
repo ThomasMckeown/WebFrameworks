@@ -7,15 +7,21 @@
 package beans;
  
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+//session means that it will save the user data until they close the browser down
+import javax.faces.bean.SessionScoped;
  
 import java.sql.*;
 import java.util.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
  
 @ManagedBean(name="login_bean")
-@RequestScoped
+@SessionScoped
 public class login_bean {
+    @Size(min=3, max=25, message="You must enter a user name")
     private String username;
+    @Pattern(regexp="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", message="Must enter a password at least a length of 8 with a capital letter and number")
     private String password;
     private String dbusername;
     private int admin;

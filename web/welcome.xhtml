@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">>
+    <head>
+        <title>The BookStore</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        
+    </head>
+    <h:body>
+
+        <a href="login.xhtml" class="button">Login</a>
+        <h1>Welcome to the BookStore!</h1>
+        
+        <div> We have a wide range of books. The most in the world in fact!</div>
+        Language Setting:
+        <f:view locale="#{locale_bean.locale}"></f:view>
+        
+        
+        
+        <ui:include src="/localeChange/localeChange.xhtml" />
+    </h:body>
+</html>

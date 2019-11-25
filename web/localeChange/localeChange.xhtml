@@ -1,0 +1,10 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets" 
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:form>
+    Select language: <h:selectOneMenu value="#{locale_bean.locale}" onchange="submit()" valueChangeListener="#{locale_bean.localeChanged}">
+    <f:selectItems value="#{locale_bean.countries}" />
+  </h:selectOneMenu>
+  </h:form>
+</ui:composition>
