@@ -30,18 +30,12 @@
                     <h:outputText value="#{bundle.ViewBookLabel_stock}"/>
                     <h:outputText value="#{bookController.selected.stock}" title="#{bundle.ViewBookTitle_stock}"/>
                 </h:panelGrid>
-                <br />
-                <h:commandLink action="#{bookController.destroyAndView}" value="#{bundle.ViewBookDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewBookEditLink}"/>
-                <br />
-                <h:commandLink action="#{bookController.prepareCreate}" value="#{bundle.ViewBookCreateLink}" />
-                <br />
-                <h:commandLink action="#{bookController.prepareList}" value="#{bundle.ViewBookShowAllLink}"/>
+                <br/>
+                
+                <h:commandLink action="List2" value="#{bundle.ViewBookShowAllLink}"/>
                 <br />
                 <br />
-                <h:link outcome="/admin" value="#{bundle.ViewBookIndexLink}"/>
+                <h:link outcome="/adimin" value="Home"/>
 
             </h:form>
         </ui:define>

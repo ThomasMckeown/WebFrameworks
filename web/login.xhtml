@@ -11,14 +11,14 @@ xmlns:jsf="http://xmlns.jcp.org/jsf">
 
     <h:head>
         
-        <title>LOGIN</title>
+        <title>#{message['title']}</title>
    </h:head>
   
     <body>
  
         <f:view>
             <h:form id="login_frm">
-                <h2>Login:</h2>
+                <h2>#{message['login']}:</h2>
                 <table width="250" border="0" cellspacing="0" cellpadding="2">
                   <tr>
                       <!--<td colspan="2">
@@ -28,7 +28,7 @@ xmlns:jsf="http://xmlns.jcp.org/jsf">
                         </td>-->
                   </tr>
                   <tr>
-                    <td><h:outputText value="Username: "/></td>
+                    <td><h:outputText value="#{message['username']}: "/></td>
                     <td><input type="text" id="username" jsf:id="username" value="#{login_bean.username}" required="required" /></td>
                     <tr>
                     <h:message for="username"  style="color: red"/>
@@ -37,7 +37,7 @@ xmlns:jsf="http://xmlns.jcp.org/jsf">
                   </tr>
                     
                   <tr>
-                    <td><h:outputText value="Password: "/></td>
+                    <td><h:outputText value="#{message['password']}: "/></td>
                     <td><input type="password" id="password" jsf:id="password" value="#{login_bean.password}"
                                required="required" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" /></td>
                     
@@ -48,8 +48,8 @@ xmlns:jsf="http://xmlns.jcp.org/jsf">
                     
                   <tr>
                       <td colspan="2" align="center">
-                          <h:commandButton action="#{login_bean.checkValidUser}" value="Login" type="submit" />
-                        <h:commandButton action="#{login_bean.checkValidAdminUser}" value="Admin" type="submit"/>
+                          <h:commandButton action="#{login_bean.checkValidUser}" value="#{message['login']}" type="submit" />
+                        <h:commandButton action="#{login_bean.checkValidAdminUser}" value="#{message['admin']}" type="submit"/>
                       </td>
                           
                   </tr>

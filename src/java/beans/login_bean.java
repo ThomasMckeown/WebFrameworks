@@ -25,6 +25,7 @@ public class login_bean {
     private String password;
     private String dbusername;
     private int admin;
+    private String name;
     
     public String getDbpassword() {
         return dbpassword;
@@ -37,6 +38,16 @@ public class login_bean {
         return dbadmin;
     }
     
+      public String getName() {
+      return name;
+   }
+    public void setName(String name) {
+      this.name = name;
+   }
+
+   public String getWelcomeMessage() {
+      return "Welcome " + name;
+   }
     private String dbpassword;
     private int dbadmin;
     Connection con;

@@ -10,24 +10,44 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <head>
-        <title>The BookStore</title>
+        <title>#{message['title']}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        
+        <script src="js/script.js" type="text/javascript"></script>
     </head>
     <h:body>
+<h:form>
+        
+        <h1>#{message['welcome']}</h1>
+        
+           <h:inputText id = "inputName" value = "#{login_bean.name}" ></h:inputText>
+         <h:commandButton value = "Show Message" >
+            <f:ajax execute = "inputName" render = "outputMessage" />
+         </h:commandButton>
+         <h2><h:outputText id = "outputMessage"
+            value = "#{login_bean.welcomeMessage != guest ?
+            login_bean.welcomeMessage : ''}"
+         /></h2>
+           
+        <div> #{message['description']}</div>
+        
+        
+        
+        
+        <h:panelGrid columns = "3"> 
+            #{message['language']}: 
+            <h:selectOneMenu value = "#{locale_bean.locale}" onchange = "submit()"
+               valueChangeListener = "#{locale_bean.localeChanged}">
+               <f:selectItems value = "#{locale_bean.countries}" /> 
+            </h:selectOneMenu> 
+         </h:panelGrid> 
+        <h:commandButton action="login" value="#{message['login']}"/>
+<br/>
+              
+      
+      </h:form>
 
-        <a href="login.xhtml" class="button">Login</a>
-        <h1>Welcome to the BookStore!</h1>
-        
-        <div> We have a wide range of books. The most in the world in fact!</div>
-        Language Setting:
-        <f:view locale="#{locale_bean.locale}"></f:view>
-        
-        
-        
-        <ui:include src="/localeChange/localeChange.xhtml" />
     </h:body>
 </html>

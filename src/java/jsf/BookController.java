@@ -106,6 +106,7 @@ public class BookController implements Serializable {
             return null;
         }
     }
+    
 
     public String destroy() {
         current = (Book) getItems().getRowData();

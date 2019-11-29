@@ -15,8 +15,7 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateBookLabel_bookId}" for="bookId" />
-                    <h:inputText id="bookId" value="#{bookController.selected.bookId}" title="#{bundle.CreateBookTitle_bookId}" required="true" requiredMessage="#{bundle.CreateBookRequiredMessage_bookId}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateBookLabel_bookName}" for="bookName" />
                     <h:inputText id="bookName" value="#{bookController.selected.bookName}" title="#{bundle.CreateBookTitle_bookName}" required="true" requiredMessage="#{bundle.CreateBookRequiredMessage_bookName}"/>
                     <h:outputLabel value="#{bundle.CreateBookLabel_author}" for="author" />
@@ -37,7 +36,7 @@
                 <h:commandLink action="#{bookController.prepareList}" value="#{bundle.CreateBookShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateBookIndexLink}"/>
+                <h:link outcome="/admin" value="#{bundle.CreateBookIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
