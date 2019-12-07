@@ -23,7 +23,7 @@
         <navigation-case>
             <from-action>#{login_bean.checkValidUser}</from-action>
             <from-outcome>invalid</from-outcome>
-            <to-view-id>/login_fail.xhtml</to-view-id>
+            <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{login_bean.checkValidAdminUser}</from-action>
@@ -33,13 +33,13 @@
         <navigation-case>
             <from-action>#{login_bean.checkValidAdminUser}</from-action>
             <from-outcome>invalid</from-outcome>
-            <to-view-id>/login_fail.xhtml</to-view-id>
+            <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
  
     </navigation-rule>
     <navigation-rule>
         <description>Login Error Page</description>
-        <from-view-id>/login_fail.xhtml</from-view-id>
+        <from-view-id>/login.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{login_bean.checkValidUser}</from-action>
             <from-outcome>valid</from-outcome>
@@ -48,7 +48,7 @@
         <navigation-case>
             <from-action>#{login_bean.checkValidUser}</from-action>
             <from-outcome>invalid</from-outcome>
-            <to-view-id>/login_fail.xhtml</to-view-id>
+            <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-action>#{login_bean.checkValidAdminUser}</from-action>
@@ -58,7 +58,7 @@
         <navigation-case>
             <from-action>#{login_bean.checkValidAdminUser}</from-action>
             <from-outcome>invalid</from-outcome>
-            <to-view-id>/login_fail.xhtml</to-view-id>
+            <to-view-id>/login.xhtml</to-view-id>
         </navigation-case>
  
     </navigation-rule>
@@ -85,7 +85,7 @@
     </application>
 
           
-          
+    
           
           
 </faces-config>

@@ -49,6 +49,8 @@ public class BookOrderPK implements Serializable {
     public void setBookId(int bookId) {
         this.bookId = bookId;
     }
+    
+    
 
     @Override
     public int hashCode() {

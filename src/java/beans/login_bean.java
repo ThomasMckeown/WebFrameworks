@@ -6,6 +6,7 @@
  
 package beans;
  
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 //session means that it will save the user data until they close the browser down
 import javax.faces.bean.SessionScoped;
@@ -16,16 +17,30 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
  
-@ManagedBean(name="login_bean")
+@ManagedBean(name="login_bean", eager = true)
 @SessionScoped
-public class login_bean {
+public class login_bean implements Serializable{
+     private static final long serialVersionUID = 1L;
+    
     @Size(min=3, max=25, message="You must enter a user name")
     private String username;
     @Pattern(regexp="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$", message="Must enter a password at least a length of 8 with a capital letter and number")
     private String password;
     private String dbusername;
     private int admin;
-    private String name;
+       private String name;
+   
+   public String getName() {
+      return name;
+   }
+   
+   public void setName(String name) {
+      this.name = name;
+   }
+
+   public String getWelcomeMessage() {
+      return "Welcome " + name;
+   }
     
     public String getDbpassword() {
         return dbpassword;
@@ -38,16 +53,8 @@ public class login_bean {
         return dbadmin;
     }
     
-      public String getName() {
-      return name;
-   }
-    public void setName(String name) {
-      this.name = name;
-   }
 
-   public String getWelcomeMessage() {
-      return "Welcome " + name;
-   }
+   
     private String dbpassword;
     private int dbadmin;
     Connection con;
